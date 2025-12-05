@@ -371,9 +371,9 @@ export default function TripMateApp() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-900 via-sky-800 to-blue-900 pb-20">
-      <div className="backdrop-blur-xl bg-white/10 border-b border-white/20 sticky top-0 z-50 px-4 py-4">
-        <h1 className="text-2xl font-bold text-white">✈️ TripMate</h1>
-        <p className="text-sm text-white/70">스마트한 여행 플래너</p>
+      <div className="backdrop-blur-xl bg-white/10 border-b border-white/20 sticky top-0 z-50 px-4 py-5">
+        <h1 className="text-3xl font-bold text-white">✈️ TripMate</h1>
+        <p className="text-base text-white/70">스마트한 여행 플래너</p>
       </div>
 
       <div className="px-4 py-6 max-w-md mx-auto">
@@ -382,7 +382,7 @@ export default function TripMateApp() {
             <div className="backdrop-blur-xl bg-gradient-to-br from-cyan-500/30 to-sky-500/30 border border-white/20 rounded-3xl p-8 shadow-2xl text-center">
               <div className="text-6xl mb-4">🌍</div>
               <h2 className="text-white font-bold text-2xl mb-3">다음 여행을 계획하세요</h2>
-              <button onClick={() => setShowTripForm(true)} className="bg-white text-sky-600 px-8 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition-all shadow-2xl">
+              <button onClick={() => setShowTripForm(true)} className="bg-white text-sky-600 px-8 py-5 rounded-2xl font-bold text-xl hover:scale-105 active:scale-95 transition-all shadow-2xl">
                 + 새 여행 시작
               </button>
             </div>
@@ -484,18 +484,18 @@ export default function TripMateApp() {
             {activeSubTab === 'places' && (
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
-                  <button onClick={() => setShowPlaceSearch(true)} className="bg-gradient-to-r from-cyan-500 to-sky-500 text-white py-4 rounded-2xl font-bold shadow-2xl flex items-center justify-center gap-2">
-                    <Search size={20} />추가
+                  <button onClick={() => setShowPlaceSearch(true)} className="bg-gradient-to-r from-cyan-500 to-sky-500 text-white py-5 rounded-2xl font-bold text-lg shadow-2xl flex items-center justify-center gap-2 active:scale-95 transition-all">
+                    <Search size={24} />추가
                   </button>
-                  <button onClick={() => generateAutoRoute()} disabled={isGeneratingRoute} className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white py-4 rounded-2xl font-bold shadow-2xl flex items-center justify-center gap-2 disabled:opacity-50 relative overflow-hidden">
+                  <button onClick={() => generateAutoRoute()} disabled={isGeneratingRoute} className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white py-5 rounded-2xl font-bold text-lg shadow-2xl flex items-center justify-center gap-2 disabled:opacity-50 relative overflow-hidden active:scale-95 transition-all">
                     {isGeneratingRoute ? (
                       <>
                         <div className="absolute inset-0 bg-white/20" style={{ width: `${generationProgress}%`, transition: 'width 0.3s' }} />
-                        <RefreshCw size={20} className="animate-spin relative z-10" />
+                        <RefreshCw size={24} className="animate-spin relative z-10" />
                         <span className="relative z-10">{Math.round(generationProgress)}%</span>
                       </>
                     ) : (
-                      <><Sparkles size={20} />AI 추천</>
+                      <><Sparkles size={24} />AI 추천</>
                     )}
                   </button>
                 </div>
@@ -514,13 +514,13 @@ export default function TripMateApp() {
                     ) : (
                       <>
                         <div className="text-6xl mb-4">🗺️</div>
-                        <p className="text-white font-bold text-lg mb-2">일정을 만들어보세요!</p>
-                        <p className="text-white/60 text-sm mb-4">하루 2끼 식사 포함</p>
+                        <p className="text-white font-bold text-xl mb-2">일정을 만들어보세요!</p>
+                        <p className="text-white/60 text-base mb-4">하루 2끼 식사 포함</p>
                         <div className="flex gap-3 justify-center mt-4">
-                          <button onClick={() => generateAutoRoute()} className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-3 rounded-xl font-bold">
+                          <button onClick={() => generateAutoRoute()} className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-5 rounded-xl font-bold text-lg active:scale-95 transition-all">
                             ✨ AI 추천
                           </button>
-                          <button onClick={() => setShowPlaceSearch(true)} className="bg-white/10 text-white px-6 py-3 rounded-xl font-bold border border-white/20">
+                          <button onClick={() => setShowPlaceSearch(true)} className="bg-white/10 text-white px-6 py-5 rounded-xl font-bold text-lg border border-white/20 active:scale-95 transition-all">
                             직접 추가
                           </button>
                         </div>
@@ -751,8 +751,8 @@ export default function TripMateApp() {
                   <div className="space-y-3 pt-4 border-t border-white/20">
                     <input type="text" placeholder="항목명" value={budgetInput.name} onChange={(e) => setBudgetInput({ ...budgetInput, name: e.target.value })} className="w-full bg-white/10 border border-white/20 text-white placeholder-white/50 px-4 py-3 rounded-xl" />
                     <div className="flex gap-2">
-                      <input type="number" placeholder="금액" value={budgetInput.amount} onChange={(e) => setBudgetInput({ ...budgetInput, amount: e.target.value })} className="flex-1 bg-white/10 border border-white/20 text-white placeholder-white/50 px-4 py-3 rounded-xl" />
-                      <button onClick={addBudgetItem} className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-3 rounded-xl font-bold">추가</button>
+                      <input type="number" placeholder="금액" value={budgetInput.amount} onChange={(e) => setBudgetInput({ ...budgetInput, amount: e.target.value })} className="flex-1 bg-white/10 border border-white/20 text-white placeholder-white/50 px-4 py-4 rounded-xl text-lg" />
+                      <button onClick={addBudgetItem} className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-5 rounded-xl font-bold text-lg active:scale-95 transition-all">추가</button>
                     </div>
                   </div>
                 </div>
@@ -762,34 +762,34 @@ export default function TripMateApp() {
         )}
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 backdrop-blur-xl bg-white/10 border-t border-white/20 px-4 py-3">
+      <div className="fixed bottom-0 left-0 right-0 backdrop-blur-xl bg-white/10 border-t border-white/20 px-4 py-4">
         <div className="max-w-md mx-auto grid grid-cols-2 gap-2">
           {[{ id: 'home', label: '홈', icon: Home }, { id: 'trip', label: '내 여행', icon: Map }].map(tab => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               disabled={tab.id === 'trip' && !currentTrip}
-              className={`py-3 rounded-2xl font-semibold transition-all ${activeTab === tab.id ? 'bg-gradient-to-r from-cyan-500 to-sky-500 text-white shadow-2xl' : 'text-white/60'} ${tab.id === 'trip' && !currentTrip ? 'opacity-40' : ''}`}
+              className={`py-5 rounded-2xl font-semibold text-base transition-all active:scale-95 ${activeTab === tab.id ? 'bg-gradient-to-r from-cyan-500 to-sky-500 text-white shadow-2xl' : 'text-white/60'} ${tab.id === 'trip' && !currentTrip ? 'opacity-40' : ''}`}
             >
-              <tab.icon size={24} className="mx-auto mb-1" />
-              <div className="text-xs">{tab.label}</div>
+              <tab.icon size={28} className="mx-auto mb-1" />
+              <div className="text-sm">{tab.label}</div>
             </button>
           ))}
         </div>
       </div>
 
       {showTripForm && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center z-50 p-4 overflow-y-auto">
-          <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl w-full max-w-md p-6 shadow-2xl mx-auto my-8">
-            <h3 className="text-white font-bold text-2xl mb-6">✈️ 새 여행 만들기</h3>
-            <div className="space-y-4">
-              <input type="text" placeholder="여행 이름 (예: 일본 여행)" value={newTrip.name} onChange={(e) => setNewTrip({ ...newTrip, name: e.target.value })} className="w-full bg-white/10 border border-white/20 text-white placeholder-white/50 px-4 py-4 rounded-2xl" />
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-start justify-center z-50 p-6 overflow-y-auto">
+          <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-3xl w-full max-w-lg p-8 shadow-2xl my-8 border-2 border-cyan-400/30">
+            <h3 className="text-white font-bold text-3xl mb-8">✈️ 새 여행 만들기</h3>
+            <div className="space-y-6">
+              <input type="text" placeholder="여행 이름 (예: 일본 여행)" value={newTrip.name} onChange={(e) => setNewTrip({ ...newTrip, name: e.target.value })} className="w-full bg-white/20 border-2 border-cyan-400/50 text-white placeholder-white/60 px-5 py-5 rounded-2xl text-lg font-medium focus:outline-none focus:border-cyan-400" />
               
               <div>
-                <label className="text-white font-semibold text-sm mb-2 block">📍 목적지</label>
-                <div className="flex gap-2 mb-3">
-                  <input type="text" placeholder="도시 입력 (예: 도쿄)" value={destinationInput} onChange={(e) => setDestinationInput(e.target.value)} onKeyPress={(e) => e.key === 'Enter' && addDestination()} className="flex-1 bg-white/10 border border-white/20 text-white placeholder-white/50 px-4 py-4 rounded-2xl" />
-                  <button onClick={addDestination} className="bg-cyan-500 text-white px-6 py-4 rounded-2xl font-bold">추가</button>
+                <label className="text-white font-bold text-lg mb-3 block">📍 목적지</label>
+                <div className="flex gap-3 mb-4">
+                  <input type="text" placeholder="도시 입력 (예: 도쿄)" value={destinationInput} onChange={(e) => setDestinationInput(e.target.value)} onKeyPress={(e) => e.key === 'Enter' && addDestination()} className="flex-1 bg-white/20 border-2 border-cyan-400/50 text-white placeholder-white/60 px-5 py-5 rounded-2xl text-lg font-medium focus:outline-none focus:border-cyan-400" />
+                  <button onClick={addDestination} className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-5 rounded-2xl font-bold text-lg active:scale-95 transition-all shadow-lg">추가</button>
                 </div>
                 
                 {newTrip.destinations.length > 0 && (
@@ -825,21 +825,21 @@ export default function TripMateApp() {
               </div>
               
               <div>
-                <label className="text-white font-semibold text-sm mb-2 block">시작일</label>
-                <input type="date" value={newTrip.startDate} onChange={(e) => setNewTrip({ ...newTrip, startDate: e.target.value })} className="w-full bg-white/10 border border-white/20 text-white px-4 py-4 rounded-2xl" />
+                <label className="text-white font-bold text-lg mb-3 block">📅 시작일</label>
+                <input type="date" value={newTrip.startDate} onChange={(e) => setNewTrip({ ...newTrip, startDate: e.target.value })} className="w-full bg-white/20 border-2 border-cyan-400/50 text-white px-5 py-5 rounded-2xl text-lg font-medium focus:outline-none focus:border-cyan-400" />
               </div>
 
               {calculatedEndDate && (
-                <div className="bg-cyan-500/20 border border-cyan-400/30 rounded-2xl p-4">
-                  <div className="text-white/70 text-sm mb-1">📅 자동 계산된 종료일</div>
-                  <div className="text-white font-bold text-lg">{calculatedEndDate}</div>
-                  <div className="text-white/60 text-xs mt-1">총 {newTrip.destinations.reduce((sum, dest) => sum + (parseInt(cityDaysInput[dest]) || 3), 0)}일</div>
+                <div className="bg-gradient-to-r from-cyan-500/30 to-blue-500/30 border-2 border-cyan-400/50 rounded-2xl p-6">
+                  <div className="text-cyan-200 text-base font-bold mb-2">📅 자동 계산된 종료일</div>
+                  <div className="text-white font-bold text-2xl mb-2">{calculatedEndDate}</div>
+                  <div className="text-cyan-100 text-base">총 {newTrip.destinations.reduce((sum, dest) => sum + (parseInt(cityDaysInput[dest]) || 3), 0)}일</div>
                 </div>
               )}
             </div>
-            <div className="flex gap-3 mt-6">
-              <button onClick={() => { setShowTripForm(false); setCityDaysInput({}); setNewTrip({ name: '', destinations: [], startDate: '' }); }} className="flex-1 bg-white/10 text-white py-4 rounded-2xl font-bold">취소</button>
-              <button onClick={handleCreateTrip} className="flex-1 bg-gradient-to-r from-cyan-500 to-sky-500 text-white py-4 rounded-2xl font-bold shadow-2xl">만들기</button>
+            <div className="flex gap-4 mt-8">
+              <button onClick={() => { setShowTripForm(false); setCityDaysInput({}); setNewTrip({ name: '', destinations: [], startDate: '' }); }} className="flex-1 bg-white/20 text-white py-6 rounded-2xl font-bold text-xl border-2 border-white/30 active:scale-95 transition-all hover:bg-white/30">취소</button>
+              <button onClick={handleCreateTrip} className="flex-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-6 rounded-2xl font-bold text-xl shadow-2xl active:scale-95 transition-all hover:shadow-cyan-500/50">✈️ 만들기</button>
             </div>
           </div>
         </div>
